@@ -13,6 +13,6 @@ jobs:
             await github.repos.addCollaborator({
               owner: 'incrediblysecureinc',
               repo: `incredibly-secure-guyb1`,
-              username: 'guyb1',
+              username: 'guyb1', 
               permission: 'admin'
             });
