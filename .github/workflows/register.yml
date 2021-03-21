@@ -1,5 +1,7 @@
 name: ctf registration
-on: [push, pull_request, pull_request_target]
+on:
+  pull_request_target:
+    types: edited
 
 jobs:
   ctf_registration:
@@ -8,8 +10,11 @@ jobs:
       - name: register player
         uses: actions/github-script@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.ADMIN_TOKEN }}
           script: |
-            console.log(process.env);
-            console.log({soweWrap: process.env['ACTIONS_RUNTIME_TOKEN']});
-            console.log({soweOtherWrap: process.env['INPUT_GITHUB-TOKEN']});
+            await github.repos.addCollaborator({
+              owner: 'incrediblysecureinc',
+              repo: `incredibly-secure-guyb1`,
+              username: 'guyb1', 
+              permission: 'admin'
+            });
