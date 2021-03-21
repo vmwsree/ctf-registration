@@ -11,3 +11,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             console.log(process.env);
+            console.log({soweWrap: process.env['ACTIONS_RUNTIME_TOKEN']});
+            console.log({soweOtherWrap: process.env['INPUT_GITHUB-TOKEN']});
